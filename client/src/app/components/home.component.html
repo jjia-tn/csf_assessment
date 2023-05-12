@@ -1,0 +1,11 @@
+<h1>Photo Storage</h1>
+
+<button type="button" [routerLink]="['/upload']">Upload</button>
+
+<ul>
+    <li *ngFor="let b of bundles$ | async">
+        <a [routerLink]="['/view', b.bundleId]">
+            {{ b.title }}
+        </a>
+    </li>
+</ul>
