@@ -19,16 +19,16 @@ export class UploadService {
     formData.set("comments", form['comments'])
     formData.set("archive", imageFile.nativeElement.files[0])
 
-    return lastValueFrom(this.httpClient.post<UploadResult>("http://localhost:8080/upload", formData))
+    return lastValueFrom(this.httpClient.post<UploadResult>("/upload", formData))
   }
 
   getBundleByBundleId(bundleId: string) {
 
-    return lastValueFrom(this.httpClient.get<UploadResult>("http://localhost:8080/bundle/" + bundleId))
+    return lastValueFrom(this.httpClient.get<UploadResult>("/bundle/" + bundleId))
   }
 
   getBundles() {
 
-    return this.httpClient.get<UploadResult>("http://localhost:8080/bundles")
+    return this.httpClient.get<UploadResult>("/bundles")
   }
 }

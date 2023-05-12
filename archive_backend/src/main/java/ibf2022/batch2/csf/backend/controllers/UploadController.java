@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
+// import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +24,7 @@ import jakarta.json.JsonObject;
 
 @Controller
 @RequestMapping
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 public class UploadController {
 
 	@Autowired
@@ -43,7 +43,6 @@ public class UploadController {
 		String bundleId = "";
         String url = "";
         try {
-            // postId = fileUploadSvc.upload(file, comments);
 			url = imageRepo.upload(archive, name, title, comments);
 			bundleId = archiveRepo.recordBundle(name, title, comments, url);
 
@@ -67,9 +66,7 @@ public class UploadController {
 				.contentType(MediaType.APPLICATION_JSON)
                 .body(payload.toString());
         }
-        // Optional<Post> opt = this.fileUploadSvc.getPostById(postId);
-        // Post p = opt.get();
-        // String encodedString = Base64.getEncoder().encodeToString(p.getPicture());
+		
     }
 
 	// TODO: Task 5
